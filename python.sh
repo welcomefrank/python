@@ -99,9 +99,9 @@ echo "然后设置环境变量"
 echo "----------------------------------------------------------------------------------------------------------"
 echo "有问题请在   https://cangshui.net/?p=2198  评论区留言，我会尽可能的回复（忙的话就要等很久了呢。。。"
 echo "----------------------------------------------------------------------------------------------------------"
-wget -P /home https://down.cangshui.net/-mysh/pythoninstall/pythonzijian.py
-python3 /home/pythonzijian.py
-rm -rf /home/pythonzijian.py
+wget -P /root https://raw.githubusercontent.com/welcomefrank/upgradepython/main/print.py
+python3 /root/print.py
+rm -rf /root/print.py
         ;;  
    99) echo "卸载！"  
 echo "正在卸载，请等待"
