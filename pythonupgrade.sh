@@ -1,6 +1,7 @@
 echo "请输入序号选择你要干啥:  
 输入1. 升级到Python 2.7.9 
-输入2. 安装python3，，并与Python2共存
+输入2. 安装python3.7，并与Python2共存(已经存在不用安装)
+输入3. 安装python3.10，并与Python2共存(已经存在不用安装)
 输入99. 直接删除python2.7和python3__危险！有可能使Yum将无法使用，知道vi /usr/bin/yum  自便
 "  
   
@@ -79,7 +80,7 @@ echo "有问题请在   https://cangshui.net/?p=2198  评论区留言，我会�
 echo "----------------------------------------------------------------------------------------------------------"
  
         ;;  
-    2) echo "安装python3，，并与Python2共存"  
+    2) echo "安装python3.7，(已经存在不用安装)"  
   sleep 1s
 yum -y groupinstall 'Development Tools'
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel
@@ -102,7 +103,31 @@ echo "--------------------------------------------------------------------------
 wget -P /root https://raw.githubusercontent.com/welcomefrank/upgradepython/main/print.py
 python3 /root/print.py
 rm -rf /root/print.py
-        ;;  
+        ;; 
+    3) echo "安装python3.10，并与Python2共存(已经存在不用安装)"  
+  sleep 1s
+yum -y groupinstall 'Development Tools'
+sudo yum install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel
+sleep 2s
+wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+tar -xf Python-3.10.0.tgz
+cd Python-3.10.0
+./configure --prefix=/usr/local/python3
+make && make install
+echo 'export PATH=$PATH:/usr/local/python3/bin' >> ~/.bashrc
+ln -sv /usr/local/python3/bin/python3.10 /usr/bin/python3
+wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
+echo "安装完成"
+echo "如果 'python3 -V' 仍然显示旧版本，可能需要重新运行脚本"
+echo "然后设置环境变量"
+echo "----------------------------------------------------------------------------------------------------------"
+echo "有问题请在   https://cangshui.net/?p=2198  评论区留言，我会尽可能的回复（忙的话就要等很久了呢。。。"
+echo "----------------------------------------------------------------------------------------------------------"
+wget -P /root https://raw.githubusercontent.com/welcomefrank/upgradepython/main/print.py
+python3 /root/print.py
+rm -rf /root/print.py
+        ;;          
    99) echo "卸载！"  
 echo "正在卸载，请等待"
 rm -rf /usr/local/bin/python2.7
