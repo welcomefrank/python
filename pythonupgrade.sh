@@ -111,7 +111,7 @@ sudo yum install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel
 sleep 2s
 mkdir tmp
 cd /tmp
-curl https://ftp.openssl.org/source/old/1.1.1/openssl-1.1.1j.tar.gz --output openssl.tar.gz
+curl https://ftp.openssl.org/source/old/1.1.1/openssl-1.1.1j.tar.gz --output openssl.tar.gz -k
 tar xzf openssl.tar.gz
 rm -rf openssl.tar.gz
 cd openssl-1.1.1j/
