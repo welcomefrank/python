@@ -115,7 +115,7 @@ cd Python-3.10.0
 ./configure --prefix=/usr/local/python3
 make && make install
 echo 'export PATH=$PATH:/usr/local/python3/bin' >> ~/.bashrc
-ln -sv /usr/local/python3/bin/python3.10 /usr/bin/python3
+ln -sfv /usr/local/python3/bin/python3.10 /usr/bin/python3
 wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 echo "安装完成"
