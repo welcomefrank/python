@@ -109,10 +109,18 @@ rm -rf /root/print.py
 yum -y groupinstall 'Development Tools'
 sudo yum install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel
 sleep 2s
+mkdir tmp
+cd /tmp
+curl https://ftp.openssl.org/source/old/1.1.1/openssl-1.1.1j.tar.gz --output openssl.tar.gz
+tar xzf openssl.tar.gz
+rm -rf openssl.tar.gz
+cd openssl-1.1.1j/
+./config --prefix=/tmp/openssl && make && make install
+cd
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 tar -xf Python-3.10.0.tgz
 cd Python-3.10.0
-./configure --prefix=/usr/local/python3
+./configure --with-openssl=/tmp/openssl --prefix=/usr/local/python3
 make && make install
 echo 'export PATH=$PATH:/usr/local/python3/bin' >> ~/.bashrc
 ln -sfv /usr/local/python3/bin/python3.10 /usr/bin/python3
