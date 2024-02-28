@@ -118,6 +118,7 @@ cd openssl-1.1.1j/
 ./config --prefix=/tmp/openssl && make && make install
 echo 'export LD_LIBRARY_PATH=/tmp/openssl/lib' >> ~/.bashrc
 echo 'export CFLAGS="-I/tmp/openssl/include"' >> ~/.bashrc
+source ~/.bashrc
 cd
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 tar -xf Python-3.10.0.tgz
@@ -125,6 +126,7 @@ cd Python-3.10.0
 ./configure --with-openssl=/tmp/openssl --prefix=/usr/local/python3
 make && make install
 echo 'export PATH=$PATH:/usr/local/python3/bin' >> ~/.bashrc
+source ~/.bashrc
 ln -sfv /usr/local/python3/bin/python3.10 /usr/bin/python3
 wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
