@@ -116,6 +116,8 @@ tar xzf openssl.tar.gz
 rm -rf openssl.tar.gz
 cd openssl-1.1.1j/
 ./config --prefix=/tmp/openssl && make && make install
+echo 'export LD_LIBRARY_PATH=/tmp/openssl/lib' >> ~/.bashrc
+echo 'export CFLAGS="-I/tmp/openssl/include"' >> ~/.bashrc
 cd
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 tar -xf Python-3.10.0.tgz
