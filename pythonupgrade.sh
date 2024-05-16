@@ -103,6 +103,8 @@ echo "--------------------------------------------------------------------------
 wget -P /root https://raw.githubusercontent.com/welcomefrank/upgradepython/main/print.py
 python3 /root/print.py
 rm -rf /root/print.py
+echo "正在重启 重启后生效"
+reboot
         ;; 
     3) echo "安装python3.10，并与Python2共存(已经存在不用安装)"  
   sleep 1s
@@ -139,6 +141,8 @@ echo "--------------------------------------------------------------------------
 wget -P /root https://raw.githubusercontent.com/welcomefrank/upgradepython/main/print.py
 python3 /root/print.py
 rm -rf /root/print.py
+echo "正在重启 重启后生效"
+reboot
         ;;          
    99) echo "卸载！"  
 echo "正在卸载，请等待"
@@ -153,6 +157,8 @@ rm -rf /usr/local/python3/bin/python3.7m-config
 rm -rf /usr/local/python3/bin/python3.7-config 
 rm -rf /usr/local/python3/bin/python3.7m
 echo "删除完成"
+echo "正在重启 重启后生效"
+reboot
         ;; 
     *) echo "请你输入选项"
         exit 1  
